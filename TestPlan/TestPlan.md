@@ -66,6 +66,7 @@ Steps:
 2. Try to bet on a past match (UI and API)
 
 Expected: only upcoming matches listed, past ones rejected
+
 ---
 
 ## TC-05: Error modal
