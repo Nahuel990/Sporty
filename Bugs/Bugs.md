@@ -21,7 +21,7 @@ API tested with Bruno
 
 **Business impact:** Any user can give themselves unlimited money through the API.
 
-**Evidence:** Bruno response saved (see screenshots/bug-01.png)
+**Evidence:** Bugs/Evidence
 
 ---
 
@@ -41,7 +41,7 @@ API tested with Bruno
 
 **Business impact:** Users can stake money they don't have.
 
-**Evidence:** [screenshots]
+**Evidence:**  Bugs/Evidence
 
 ---
 
@@ -60,7 +60,7 @@ API tested with Bruno
 
 **Business impact:** The user's record of what they're owed is wrong, which leads to disputes and loss of trust.
 
-**Evidence:** [screenshot of slip + receipt]
+**Evidence:**  Bugs/Evidence
 
 ---
 
@@ -79,7 +79,7 @@ API tested with Bruno
 
 **Business impact:** Users can bet on games that are already finished, when the result is known.
 
-**Evidence:** screenshots/bug-04.png
+**Evidence:**  Bugs/Evidence
 
 ---
 
@@ -96,7 +96,7 @@ API tested with Bruno
 
 **Business impact:** Bad input crashes the endpoint instead of being handled. Noise in monitoring, possible stability risk.
 
-**Evidence:** Bruno response
+**Evidence:**  Bugs/Evidence
 
 ---
 
@@ -113,7 +113,7 @@ API tested with Bruno
 
 **Business impact:** Invalid amounts get stored, which can cause rounding errors in balances and payouts.
 
-**Evidence:** Bruno response
+**Evidence:**  Bugs/Evidence
 
 ---
 
@@ -131,7 +131,7 @@ API tested with Bruno
 
 **Business impact:** Wrong currency in records, confusing for users and a problem for reporting.
 
-**Evidence:** Bruno response
+**Evidence:**  Bugs/Evidence
 
 ---
 
@@ -150,7 +150,7 @@ API tested with Bruno
 
 **Business impact:** Users get an empty or confusing list with no explanation.
 
-**Evidence:** [screenshot]
+**Evidence:**  Bugs/Evidence
 
 ---
 
@@ -169,7 +169,7 @@ API tested with Bruno
 
 **Business impact:** Users miss matches they filtered for.
 
-**Evidence:** [screenshot]
+**Evidence:** Bugs/Evidence
 
 ---
 
@@ -187,4 +187,4 @@ API tested with Bruno
 
 **Business impact:** Looks broken and unprofessional, but no financial risk.
 
-**Evidence:** screenshots/bug-10.png
+**Evidence:**  Bugs/Evidence
