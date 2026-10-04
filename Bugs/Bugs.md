@@ -12,12 +12,12 @@ API tested with Bruno
 
 **Steps:**
 1. POST /api/place-bet with header x-user-id
-2. Body: {"matchId":"premier-league-manutd-chelsea","selection":"HOME","stake":-1000000000000000}
+2. Body: {"matchId":"premier-league-manutd-chelsea","selection":"AWAY","stake":-1.999999999999999}
 3. GET /api/balance
 
 **Expected:** 422, stake rejected (spec 4.1: min €1.00). Balance unchanged.
 
-**Actual:** 200 "Bet placed successfully". Payout is negative and balance goes up to 1000000000000115.
+**Actual:** 200 "Bet placed successfully". Payout is negative and balance goes up to 1000000000000121.9.
 
 **Business impact:** Any user can give themselves unlimited money through the API.
 
@@ -31,13 +31,13 @@ API tested with Bruno
 
 **Steps:**
 1. Reset balance (€125.50)
-2. In the UI, select odds and place a bet of [€X]
-3. Without refreshing, place a second bet of [€Y] so the total is more than the balance
+2. In the UI, select odds and place a bet of €100.00
+3. Without refreshing, place a second bet of €77.00 so the total is more than the balance
 4. Refresh the page
 
 **Expected:** Second bet is blocked with "Insufficient balance" (spec 4.1, UI + API).
 
-**Actual:** Both bets are accepted. Balance is not updated in the UI after the first bet, and the API doesn't check the balance. After refresh, "Insufficient balance" appears, but the bet was already placed. Balance is [€-Z].
+**Actual:** Both bets are accepted. Balance is not updated in the UI after the first bet, and the API doesn't check the balance. After refresh, "Insufficient balance" appears, but the bet was already placed. Balance is €-57.00.
 
 **Business impact:** Users can stake money they don't have.
 
@@ -50,13 +50,13 @@ API tested with Bruno
 **Severity:** High
 
 **Steps:**
-1. Select Manchester Utd vs Chelsea, home (2.45)
-2. Enter stake €10. Bet slip shows €24.50
+1. Select PSG vs Marseille, away (7.50)
+2. Enter stake €1. Bet slip shows €7.50
 3. Place bet
 
-**Expected:** Receipt payout €24.50 (spec 2.4, must match the bet slip).
+**Expected:** Receipt payout €7.50 (spec 2.4, must match the bet slip).
 
-**Actual:** Receipt shows [€20.00]. The API returns the correct payout, so the bug is in the UI only.
+**Actual:** Receipt shows €2.00. The API returns the correct payout, so the bug is in the UI only.
 
 **Business impact:** The user's record of what they're owed is wrong, which leads to disputes and loss of trust.
 
@@ -105,7 +105,7 @@ API tested with Bruno
 **Severity:** Medium
 
 **Steps:**
-1. POST /api/place-bet with stake 1.899999999999
+1. POST /api/place-bet with stake 1.999999999999999
 
 **Expected:** 422 invalid precision (spec 4.1: max 2 decimals).
 
@@ -141,12 +141,12 @@ API tested with Bruno
 
 **Steps:**
 1. Open the Odds filter
-2. Set min 5.00, max 2.00
+2. Set min 6.20, max 2.63
 3. Click Apply
 
 **Expected:** Invalid range rejected with a clear message (spec 2.6).
 
-**Actual:** Filter is applied with no error. [describe what the list shows]
+**Actual:** Filter is applied with no error. The list is empty.
 
 **Business impact:** Users get an empty or confusing list with no explanation.
 
@@ -179,11 +179,11 @@ API tested with Bruno
 
 **Steps:**
 1. Select any odds
-2. Type a very long number in the stake field (e.g. 000080000000000000000000000000)
+2. Type a very long number in the stake field (e.g. 99999999999999999999999999999999)
 
 **Expected:** Input is limited, totals stay readable.
 
-**Actual:** Input is accepted. Total Stake shows €8e+38, Payout shows €2.48e+39. Max stake message appears and Place Bet is disabled, so the bet can't be placed.
+**Actual:** Input is accepted. Total Stake shows €1e+32, Payout shows €3.35e+32. Max stake message appears and Place Bet is disabled, so the bet can't be placed.
 
 **Business impact:** Looks broken and unprofessional, but no financial risk.
 
