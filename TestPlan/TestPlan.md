@@ -3,6 +3,7 @@
 
 Scope: single bets on upcoming football matches, desktop Chrome, UI and APINot covered: live bets, multi-bets, mobile
 I prioritised anything that touches money or the bet record
+
 ---
 
 ## TC-01: Place a valid bet and check the receipt
