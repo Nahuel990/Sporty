@@ -25,3 +25,4 @@ Other candidates like TC-03 (overdraft) and TC-04 (past matches) are good next s
 2. **Run tests in CI:** API tests on every push, UI tests nightly in headless Chrome. Use uv or Poetry to lock dependency versions
 3. **Error modal (TC-05):** set up a script that triggers the error (e.g. two bets at the same time for a 409) and run it manually, since it could be flaky in CI
 4. **Get upcoming match IDs at runtime:** the tests use a fixed match ID, so once that match is in the past the tests will get 422. Getting an upcoming match from /api/matches keeps the tests running
+5. **Test data layer:** load the URL and user ID from a .env file (ignored by git), and move test data like stakes and expected results to JSON files that feed "parametrize", so data changes without touching test code
