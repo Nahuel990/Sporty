@@ -73,16 +73,16 @@ Expected: only upcoming matches listed, past ones rejected
 ## TC-05: Error modal
 Priority: High
 
-Risk: Rebet could place the bet twice
+Risk: Re-bet could place the bet twice
 Steps:
 1. Place a bet until it fails
-2. Click Rebet
+2. Click Re-bet
 3. Fail again, click Close
 4. Fail again, click X
 
 Expected:
 - Title "Something went wrong"
-- Rebet retries, bet placed only once
+- Re-bet retries, bet placed only once
 - Close and X clear the slip
 
 ---

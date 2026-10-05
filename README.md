@@ -5,6 +5,7 @@ QA assignment for the Single Bet Placement feature.
 - `TestPlan/` - test plan
 - `Bugs/` - bug reports with evidence
 - `Automation/` - API and UI tests (Python, pytest, Selenium, requests)
+- `Strategy/` - test plan
 
 ## Setup
 
